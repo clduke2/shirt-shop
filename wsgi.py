@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 prices = {
     "short-sleeve": 5.0,
@@ -16,7 +16,7 @@ prices = {
     "2xl": 11.0,
 }
 
-@app.route("/", methods=["GET", "POST"])
+@application.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
         cut = request.form["cut"]
@@ -34,4 +34,4 @@ def home():
         return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(port=8080)
+    application.run(port=8080)
